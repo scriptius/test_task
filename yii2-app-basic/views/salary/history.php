@@ -1,7 +1,20 @@
+<h1>История начисления бонусов</h1>
+
 <?php
-/**
- * Created by PhpStorm.
- * User: Victor_PC
- * Date: 28.03.2017
- * Time: 2:59
- */
+echo '<table cellpadding="5" cellspacing="0" border="1">';
+echo     '<thead>
+              <tr>
+                  <td> ID пользователя </td>
+                  <td> Старая ЗП </td>
+                  <td> Обновленная ЗП </td>
+                  <td> Id бонуса </td>
+                  <td> дата </td>
+              </tr>
+          </thead>';
+foreach ($history as $item) {
+    echo "<tr>";
+    foreach ($item as $data)
+        echo "<td>".$data."</td>";
+    echo "</tr>";
+}
+echo "</table>";

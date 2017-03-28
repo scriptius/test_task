@@ -2,13 +2,10 @@
 
 namespace app\controllers;
 
+use app\models\History;
 use Yii;
-//use yii\filters\AccessControl;
 use app\models\Statistics;
 use yii\web\Controller;
-//use yii\filters\VerbFilter;
-//use app\models\Statistics;
-//use app\models\ContactForm;
 
 class SalaryController extends Controller
 {
@@ -19,7 +16,6 @@ class SalaryController extends Controller
     public function actionIndex()
     {
         $statistics = new Statistics();
-//        $statisticsDataProvider = $statistics->getDataProvider();
         $salaryReport = $statistics->getSalaryReport();
         return $this->render('index', ['salaryReport' => $salaryReport]);
     }
@@ -31,6 +27,6 @@ class SalaryController extends Controller
      */
     public function actionHistory()
     {
-        return $this->render('history');
+        return $this->render('history', ['history' => History::find()->all()]);
     }
 }
