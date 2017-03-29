@@ -26,7 +26,11 @@ CREATE TABLE `statistics`(
 `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 `count_calls` int UNSIGNED DEFAULT 0,
 `type_day` int UNSIGNED,
-     PRIMARY KEY(`id`)
+     PRIMARY KEY(`id`),
+     FOREIGN KEY `statidx` (`user_id`) 
+        REFERENCES `users`(`id`)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 # На эту таблицу повешен триггер, который реагирует на изменение суммы ЗП
